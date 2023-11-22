@@ -35,4 +35,9 @@ public class UserService {
             throw new IllegalArgumentException("비밀번호 다름");
         }
     }
+
+    public UserResponseDto getUserInfo(Long id) {
+        User user = userRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 id의 유저는 존재하지 않습니다."));
+        return new UserResponseDto(user);
+    }
 }
