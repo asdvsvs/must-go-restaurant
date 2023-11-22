@@ -1,6 +1,9 @@
 package com.sparta.mustgorestaurant.user;
 
+import lombok.Getter;
+
+@Getter
 public class UserRequestDto {
-    String username;
-    String password;
+    private String username;
+    private String password;
 }
