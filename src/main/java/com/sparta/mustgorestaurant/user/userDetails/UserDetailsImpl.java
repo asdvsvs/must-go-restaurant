@@ -1,7 +1,8 @@
-package com.sparta.mustgorestaurant.user;
+package com.sparta.mustgorestaurant.user.userDetails;
 
 import java.util.Collection;
 
+import com.sparta.mustgorestaurant.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

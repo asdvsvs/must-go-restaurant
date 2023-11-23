@@ -1,6 +1,7 @@
-package com.sparta.mustgorestaurant.user;
+package com.sparta.mustgorestaurant.user.dto;
 
 import com.sparta.mustgorestaurant.CommonResponseDto;
+import com.sparta.mustgorestaurant.user.User;
 import lombok.Getter;
 
 @Getter

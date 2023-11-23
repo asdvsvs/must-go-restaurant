@@ -1,14 +1,12 @@
 package com.sparta.mustgorestaurant.user;
 
+import com.sparta.mustgorestaurant.user.dto.UserRequestDto;
+import com.sparta.mustgorestaurant.user.dto.UserResponseDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-
-import java.util.Objects;
 
 @Slf4j
 @Service

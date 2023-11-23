@@ -2,15 +2,13 @@ package com.sparta.mustgorestaurant.user;
 
 import com.sparta.mustgorestaurant.CommonResponseDto;
 import com.sparta.mustgorestaurant.jwt.JwtUtil;
+import com.sparta.mustgorestaurant.user.dto.UserRequestDto;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.http.HttpResponse;
 
 @Slf4j
 @RestController

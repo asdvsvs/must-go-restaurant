@@ -3,7 +3,7 @@ package com.sparta.mustgorestaurant;
 
 import com.sparta.mustgorestaurant.jwt.JwtAuthorizationFilter;
 import com.sparta.mustgorestaurant.jwt.JwtUtil;
-import com.sparta.mustgorestaurant.user.UserDetailsService;
+import com.sparta.mustgorestaurant.user.userDetails.UserDetailsService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

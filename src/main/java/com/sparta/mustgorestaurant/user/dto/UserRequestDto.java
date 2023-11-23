@@ -1,4 +1,4 @@
-package com.sparta.mustgorestaurant.user;
+package com.sparta.mustgorestaurant.user.dto;
 
 import lombok.Getter;
 

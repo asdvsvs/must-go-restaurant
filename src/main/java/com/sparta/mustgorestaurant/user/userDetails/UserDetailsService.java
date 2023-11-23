@@ -1,5 +1,7 @@
-package com.sparta.mustgorestaurant.user;
+package com.sparta.mustgorestaurant.user.userDetails;
 
+import com.sparta.mustgorestaurant.user.User;
+import com.sparta.mustgorestaurant.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

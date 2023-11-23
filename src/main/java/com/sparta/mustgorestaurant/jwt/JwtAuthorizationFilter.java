@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 import com.sparta.mustgorestaurant.CommonResponseDto;
-import com.sparta.mustgorestaurant.user.UserDetailsImpl;
-import com.sparta.mustgorestaurant.user.UserDetailsService;
+import com.sparta.mustgorestaurant.user.userDetails.UserDetailsImpl;
+import com.sparta.mustgorestaurant.user.userDetails.UserDetailsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
