@@ -32,6 +32,10 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+//        if(!jwtUtil.isPresentToken(request)){
+//            setResponse("토큰이 존재하지 않습니다.", response);
+//            return;
+//        }
         String token = jwtUtil.resolveToken(request);
 
         if(Objects.nonNull(token)) {
@@ -53,14 +57,18 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                 // -> 이제 @AuthenticationPrincipal 로 조회할 수 있음
             } else {
                 // 인증정보가 존재하지 않을때
-                CommonResponseDto commonResponseDto = new CommonResponseDto("토큰이 유효하지 않습니다.", HttpStatus.BAD_REQUEST.value());
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-                response.setContentType("application/json; charset=UTF-8");
-                response.getWriter().write(objectMapper.writeValueAsString(commonResponseDto));
+                setResponse("토큰이 유효하지 않습니다.", response);
                 return;
             }
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private void setResponse(String msg, HttpServletResponse response) throws IOException {
+        CommonResponseDto commonResponseDto = new CommonResponseDto(msg, HttpStatus.BAD_REQUEST.value());
+        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        response.setContentType("application/json; charset=UTF-8");
+        response.getWriter().write(objectMapper.writeValueAsString(commonResponseDto));
     }
 }

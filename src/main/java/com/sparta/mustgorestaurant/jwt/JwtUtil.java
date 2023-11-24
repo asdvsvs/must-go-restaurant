@@ -1,11 +1,16 @@
 package com.sparta.mustgorestaurant.jwt;
 
 
+import java.io.IOException;
 import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sparta.mustgorestaurant.CommonResponseDto;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -14,12 +19,10 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -38,6 +41,7 @@ public class JwtUtil {
     private final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 
     private Key key;
+
 
     @PostConstruct
     public void init() {
@@ -85,5 +89,13 @@ public class JwtUtil {
                         .setIssuedAt(date)
                         .signWith(key, signatureAlgorithm)
                         .compact();
+    }
+
+    public Boolean isPresentToken(HttpServletRequest request) throws IOException {
+        if(request.getHeader(AUTHORIZATION_HEADER) ==null){
+            log.error("로그인이 필요합니다. (JWT가 존재하지 않습니다)");
+            return false;
+        }
+        return true;
     }
 }
